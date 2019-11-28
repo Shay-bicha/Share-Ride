@@ -14,13 +14,15 @@ let rideSchema = mongoose.Schema({
         required: true
     },
     time: {
+
+
         type: String,
         required: true
     },
     // driver:User.firstName
 });
-
   
+
 
 
 let newride = mongoose.model('rides', rideSchema);

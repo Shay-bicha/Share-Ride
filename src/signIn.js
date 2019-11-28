@@ -27,6 +27,7 @@ exports.signinHandler = (req, res) => {
 
 exports.loginHandler = (req, res) => {
     let body = req.body;
+   
     try {
         let user = User.findOne({email: body.email})
         user.select('email name password');

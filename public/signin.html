@@ -1,15 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/signin.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <title>sign-In</title>
 </head>
+
 <body>
-    
-    
+
+    <div class="wrapper">
+
+        <form action="" class="form">
+
+            <div class="signIn-headline">
+                <h2 class="headline">Sign In</h2>
+            </div>
+
+            <div class="first-name">
+                <label for="first" class="first-name__label">First Name :</label>
+                <input type="text" class="first-name__input" id="first" required>
+            </div>
+
+            <div class="last-name">
+                <label for="last" class="last-name__label">Last Name :</label>
+                <input type="text" class="last-name__input" id="last" required>
+            </div>
+
+            <div class="email">
+                <label for="email" class="email__label">Email :</label>
+                <input type="email" class="email__input" id="email" required>
+            </div>
+
+            <div class="password">
+                <label for="password" class="password__label">Password :</label>
+                <input type="password" class="password__input" id="password" required>
+            </div>
+
+            <div class="password-confirm">
+                <label for="password" class="password-confirm__label">Password Confirm :</label>
+                <input type="password" class="password-confirm__input" id="password" required>
+            </div>
+
+            <div class="select">
+                <select name="gender" id="gender" class="select-class">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="signIn">
+                <button type="submit" class="submit">Sign In</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        // SignIn Variables
+        const submitBtn = document.querySelector('.submit');
+
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const firstName = document.querySelector('.first-name__input').value;
+            const lastName = document.querySelector('.last-name__input').value;
+            const email = document.querySelector('.email__input').value;
+            const password = document.querySelector('.password__input').value;
+            const passwordConfirm = document.querySelector('.password-confirm__input').value
+            const selectClass = document.querySelector('.select-class').value;
+
+            axios.post('/signin', {
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    password: password,
+                    confirmPassword: passwordConfirm,
+                    gender: selectClass
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+
+        })
+    </script>
+
 
 
 </body>
+
 </html>
