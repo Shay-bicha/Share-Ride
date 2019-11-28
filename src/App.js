@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
-const mongodb = require('mongodb');
-const mongoose = require('mongoose');
+// const mongodb = require('mongodb');
+// const mongoose = require('mongoose');
 const app = express();
 const test = require('./test');
-const getRides = require('./getRideModule');
+// const getRides = require('./getRideModule');
 const offerRides = require('./offerRides');
 // const port = 8080;
 // const signIN = require('./signin');
@@ -22,9 +22,9 @@ app.post('/offerRides', (req, res)=>{
     
 });
 
-app.post('/getRides', (req, res)=>{
-    getRides.getRides(req, res);
-});
+// app.post('/getRides', (req, res)=>{
+//     getRides.getRides(req, res);
+// });
 app.get('/' , (req , res)=>{
     res.send('hello world');
 });
