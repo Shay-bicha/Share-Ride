@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    Port Location:<input type="text" id="Location" placeholder= "Insert your location"><br>
+    Target:<input type="text" id="Target" placeholder="Insert your Target"><br>
+    Several places several:<input type="number" id="numberOfPlaces" placeholder="Insert several places"><br>
+    Departure Time:<input type="text" id="Time" placeholder="Insert time now"><br>
+    <button onclick="sendDtails()">Send</button>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   <script>
+       const location = document.getElementById('Location');
+       const target = document.getElementById('Target');
+       const numberOfPlaces = document.getElementById('numberOfPlaces');
+       const time = document.getElementById('Time');
+       function sendDtails(){
+           axios.post('/offerRides' , {
+               location : location.value ,
+               target : target.value ,
+               numberOfPlaces : Number(numberOfPlaces.value) ,
+               time : time.value 
+           })
+           .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+       }
+   </script> 
+   
+</body>
+</html>
