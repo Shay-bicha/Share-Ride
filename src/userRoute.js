@@ -22,7 +22,6 @@ exports.signinHandler = (req, res) => {
                     data: "signed in successfully"
                 })
             }
-
         });
     };
 }
