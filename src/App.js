@@ -3,27 +3,19 @@ const path = require('path');
 const mongodb = require('mongodb');
 const mongoose = require('mongoose');
 const app = express();
-const getRides = require('./getRideModule');
+const test = require('./test');
+const getRides = require('./getRides');
 const offerRides = require('./offerRides');
-const signiN = require('./signin');
+const signIn = require('./signIn');
 const port = 8080;
-
-//! DB
-const uri = "mongodb+srv://aschaley123:As123123@cluster0-c0kmd.mongodb.net/shareRide?retryWrites=true&w=majority";
-mongoose.connect(uri,{useUnifiedTopology: true, useNewUrlParser: true},(err, db)=>{
-    if(err) throw err
-    else{
-        console.log("connected to Db");
-    }
-});
-
 const publicdir = path.join(__dirname, '..', 'public');
 app.use(express.static(publicdir));
 app.use(express.json());
 
 app.post('/signin', (req, res)=>{
-    signiN.signinHandler(req, res);
+    signIn.signinHandler(req, res);
 });
+
 app.post('/login', (req, res)=>{
     signiN.loginHandler(req, res);
 });
@@ -32,12 +24,18 @@ app.post('/login', (req, res)=>{
 //     res.sendFile();
 // })
 
+
+
 app.post('/offerRides', (req, res)=>{
     offerRides.offerRides(req, res);
+    
 });
 
 app.post('/getRides', (req, res)=>{
     getRides.getRides(req, res);
+});
+app.get('/' , (req , res)=>{
+    res.send('hello world');
 });
 
 app.listen(process.env.PORT || 8080,()=>{
