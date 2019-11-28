@@ -14,9 +14,27 @@
    </head>
    <body>
       <h1>Login</h1> 
-      <input type="text" id="userName">
-      <input type="password" id="Password" placeholder="in">
+      <input type="text" id="userName" placeholder="Insert user name">
+      <input type="password" id="Password" placeholder="Insert Password">
+      <button id="send" onclick="sendUser()">SEND</button>
    </body>
    </html>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   <script>
+      function sendUser(){
+        const userName = document.getElementById('userName').value;
+        const Password = document.getElementById('Password').value;
+        axios.post('/login' , {
+            userName : userName ,
+            Password : Password
+        })
+        .then(function (response) {
+                console.log(response.data);
+        })
+        .catch(function (error) {
+                console.log(error);
+        });
+      }
+   </script>
 </body>
 </html>
