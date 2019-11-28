@@ -8,23 +8,24 @@
 </head>
 <body>
     
-    Port Location:<input type="text" id="Location" placeholder= "Insert your location"><br>
-    Target:<input type="text" id="Target" placeholder="Insert your Target"><br>
-    Several places several:<input type="number" id="numberOfPlaces" placeholder="Insert several places"><br>
+    Start Location:<input type="text" id="Location" placeholder= "Insert your location"><br>
+    Destination:<input type="text" id="Destination" placeholder="Insert your Destination"><br>
+    Several seats:<input type="number" id="numberSeats" placeholder="Insert several seats"><br>
     Departure Time:<input type="text" id="Time" placeholder="Insert time now"><br>
     <button onclick="sendDtails()">Send</button>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    <script>
-       const location = document.getElementById('Location');
-       const target = document.getElementById('Target');
-       const numberOfPlaces = document.getElementById('numberOfPlaces');
-       const time = document.getElementById('Time');
+      
        function sendDtails(){
+        const location = document.getElementById('Location').value ;
+       const target = document.getElementById('Destination').value;
+       const numberOfPlaces = document.getElementById('numberSeats').value;
+       const time = document.getElementById('Time').value;
            axios.post('/offerRides' , {
-               location : location.value ,
-               target : target.value ,
-               numberOfPlaces : Number(numberOfPlaces.value) ,
-               time : time.value 
+               location : location ,
+               destination : target ,
+               Seats : Number(numberOfPlaces) ,
+               time : time
            })
            .then(function (response) {
                 console.log(response);

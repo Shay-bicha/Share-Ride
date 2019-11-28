@@ -8,7 +8,6 @@
     <title>Get ride - driver</title>
 </head>
 <style>
-
     * {
         margin: 0;
         padding: 0;
@@ -17,16 +16,14 @@
 
     body {
         font-family: 'Lato', sans-serif;
-        font-size: 100%; 
+        font-size: 100%;
         line-height: 1.6;
     }
-
-
 </style>
 
 <body>
 
-    <form action="/getRides" method="post" class="form">
+    <form class="form">
 
         <div class="departure-city">
             <label for="departure" class="departure-city__label">Departure City :</label>
@@ -48,8 +45,40 @@
         <div class="submit">
             <input type="submit" value="Submit" class="submit__button">
         </div>
-        
+
     </form>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        // Form variables
+        const form = document.querySelector('.form');
+
+        // Form Data and Axios
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const departureCity = form.departure.value;
+            const arrivalCity = form.arrival.value;
+            const hour = Number(form.hour.value);
+
+            // Reset The Form
+            form.reset();
+
+            axios.post('/getRides', {
+                    departureCity: departureCity,
+                    arrivalCity: arrivalCity,
+                    hour : hour
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        })
+    </script>
+
+   
 
 </body>
 

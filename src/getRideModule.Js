@@ -1,30 +1,34 @@
-// const express = require('express'),
-const fs = require('fs'),
+const fs = require("fs"),
 fileName = 'Rides.txt';
 
-   console.log(fileName);
-
- fs.readFile(fileName, (err, data) => {
-        if (err) throw err;
-        console.log(data,'this is data');
-      });
-
-exports.getRides = function getRides(req,res){
- let body = req.body;
-    console.log(body);
-   
-   
- //console.log('this is file data');
 
 
-return res.status(201).send(body);
+exports.getRides = (req, res) => {
+  let getInfo = req.body;
+  fs.readFile(fileName,'utf8',(err, data) => {
+    if (err) throw err;
+    let fileData = JSON.parse(data);
+    console.log(fileData);
+     let result = [];
 
-}
+    fileData.forEach(data => {
+     if(data.location == getInfo.location && data.destination == getInfo.destination && data.time == getInfo.time){
+        result.push({location:data.location,
+                     destination: data.destination,
+                     time:data.time ,
+                     name: 'Dan'});
+     }
+    });
+           console.log(result,'this is result');
+           return res.status(201).send(result);
+  });
+
+};
 
 // get data from client
 
 // check Validation
 
-//read data from rides-txt 
+//read data from rides-txt
 
 //send response to client
