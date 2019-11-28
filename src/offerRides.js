@@ -2,10 +2,10 @@
 const fs = require('fs');
 const fileName = './Rides.txt';
 
-exports.offerRedes = (req, res) => {
+exports.offerRides = (req, res) => {
     //* get data from user
     let body = req.body;
     console.log(body);
 
-    
+
 }

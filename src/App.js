@@ -8,7 +8,7 @@ const publicdir = path.join(__dirname, '..', 'public');
 app.use(express.static(publicdir));
 app.use(express.json());
 
-app.get('/offerRides', (req, res)=>{
+app.post('/offerRides', (req, res)=>{
     offerRides.offerRides(req, res)
 })
 
