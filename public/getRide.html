@@ -38,8 +38,8 @@
 
 
         <div class="hour">
-            <label for="arrival" class="hour__label">Hour :</label>
-            <input type="text" class="hour__input" name="hour">
+            <label for="hour" class="hour__label">Hour :</label>
+            <input type="number" class="hour__input" name="hour">
         </div>
 
         <div class="submit">
@@ -53,21 +53,22 @@
     <script>
         // Form variables
         const form = document.querySelector('.form');
+        const submitButton = document.querySelector('.submit__button')
 
         // Form Data and Axios
-        form.addEventListener('submit', (e) => {
+        submitButton.addEventListener('click', (e) => {
             e.preventDefault();
-            const departureCity = form.departure.value;
-            const arrivalCity = form.arrival.value;
-            const hour = Number(form.hour.value);
 
+            const departureCity = document.querySelector('.departure-city__input').value;
+            const arrivalCity = document.querySelector('.arrival-city__input').value;
+            const hour = Number(document.querySelector('.hour__input').value);            
             // Reset The Form
             form.reset();
 
             axios.post('/getRides', {
-                    departureCity: departureCity,
-                    arrivalCity: arrivalCity,
-                    hour : hour
+                    location: departureCity,
+                    destination: arrivalCity,
+                    time : hour
                 })
                 .then(function (response) {
                     console.log(response);
