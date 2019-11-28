@@ -5,7 +5,6 @@ const rideScheme = require('./models/ridesModel');
 exports.offerRides = (req, res) => {
     //* get data from user
     let body = req.body;
-
     //* console.log(body);
     let location = body.location;
     let destination = body.destination;
@@ -33,7 +32,21 @@ exports.offerRides = (req, res) => {
     rideScheme.create(body, (err, success) => {
         if (err) console.log(err);
         else {
-            console.log(success);
+            res.status(201).JSON({
+                data: "successfully submitted"
+            });
         }
     });
+}
+
+exports.getRides = (req, res) => {
+    let body = req.body;
+    let ride = rideScheme.find({
+        startingPoint: body.location,
+        destination: destination,
+        time: time
+    });
+
+    ride.select('startingPoint', 'destination', 'time');
+    ride.exec()
 }

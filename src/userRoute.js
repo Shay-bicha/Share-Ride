@@ -18,7 +18,9 @@ exports.signinHandler = (req, res) => {
         User.create(newUser, (err, success)=>{
             if(err) console.log(err);
             else{
-                console.log(success);
+                res.status(201).json({
+                    data: "signed in successfully"
+                })
             }
         });
     };
@@ -26,7 +28,6 @@ exports.signinHandler = (req, res) => {
 
 exports.loginHandler = (req, res) => {
     let body = req.body;
-   
     try {
         let user = User.findOne({email: body.email})
         user.select('email name password');

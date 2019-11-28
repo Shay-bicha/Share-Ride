@@ -24,35 +24,28 @@ mongoose.connect(dbUrl, {
 
 app.post('/signin', (req, res) => {
     signin.signinHandler(req, res);
-  
-mongoose.connect(dbUrl,{ useUnifiedTopology: true }, (connection)=>{
-    console.log("connected to db");
-    
-})
-
+    mongoose.connect(dbUrl, { useUnifiedTopology: true }, (connection) => {
+        console.log("connected to db");
+    });
 });
 
 app.post('/login', (req, res) => {
     signin.loginHandler(req, res);
 });
+
 // app.get('/getRide',(req,res)=>{
 //     console.log('get res get');
 //     res.sendFile();
 // })
 
-
-
 app.post('/offerRides', (req, res) => {
     offerRides.offerRides(req, res);
-
 });
 
 app.post('/getRides', (req, res) => {
     getRides.getRides(req, res);
 });
-app.get('/', (req, res) => {
-    res.send('hello world');
-});
+
 
 app.listen(process.env.PORT || 8080, () => {
     console.log("listening on port");
