@@ -39,7 +39,6 @@ exports.loginHandler = (req, res) => {
                 });
             }
         });
-
     } catch (error) {
         console.log(error);
     }

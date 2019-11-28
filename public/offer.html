@@ -20,12 +20,12 @@
        const location = document.getElementById('Location').value ;
        const target = document.getElementById('Destination').value;
        const numberOfPlaces = document.getElementById('numberSeats').value;
-       const hour = document.getElementById('hour').value;
+       const hour = document.getElementById('Time').value;
            axios.post('/offerRides' , {
                location : location ,
                destination : target ,
                Seats : Number(numberOfPlaces) ,
-               hour : time
+               hour : hour
            })
            .then(function (response) {
                 console.log(response);

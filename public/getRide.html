@@ -61,14 +61,14 @@
 
             const departureCity = document.querySelector('.departure-city__input').value;
             const arrivalCity = document.querySelector('.arrival-city__input').value;
-            const hour = Number(document.querySelector('.hour__input').value);
+            const time = Number(document.querySelector('.hour__input').value);
             // Reset The Form
             form.reset();
 
             axios.post('/getRides', {
                 location: departureCity,
                 destination: arrivalCity,
-                time: hour
+                time: time
             }).then(function (response) {
                     console.log(response);
                 })
