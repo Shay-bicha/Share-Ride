@@ -33,7 +33,9 @@ exports.loginHandler = (req, res) => {
         user.exec((err, txt)=>{
             if(err) console.log(err);
             else{
-                res.status(200).send("loged suseesfully");
+                res.status(200).json({
+                    data: "loged suseesfully"
+                });
             }
         });
         
