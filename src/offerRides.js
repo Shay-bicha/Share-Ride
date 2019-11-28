@@ -9,10 +9,11 @@ exports.offerRides = (req, res) => {
     let destination = body.destination;
     let seats = body.destination;
     let time = body.time;
-    
+    let newRide ={location, destination, seats, time}
     fs.read(fileName, (err, file)=>{
-        
+        if(err) throw err;
+        else{
+            
+        }
     });
-
-
 }
