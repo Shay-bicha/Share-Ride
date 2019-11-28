@@ -1,2 +1,2 @@
 [{"location":"tel aviv","destination":"hifa","seats":2,"time"12"},
-{"location":"tgr","destination":"erge","seats":845,"time":"11"}]
+{"location":"hadera","destination":"lod","seats":3,"time":"11:40"}]
