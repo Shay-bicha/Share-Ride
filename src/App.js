@@ -12,6 +12,12 @@ const publicdir = path.join(__dirname, '..', 'public');
 app.use(express.static(publicdir));
 app.use(express.json());
 
+let dbUrl = "mongodb+srv://aschaley123:As123123@cluster0-c0kmd.mongodb.net/shareRide?retryWrites=true&w=majority";
+mongoose.connect(dbUrl,{ useUnifiedTopology: true }, (connection)=>{
+    console.log("connected to db");
+    
+})
+
 app.post('/signin', (req, res)=>{
     signIn.signinHandler(req, res);
 });
