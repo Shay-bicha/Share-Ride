@@ -6,7 +6,6 @@ const app = express();
 const test = require('./test');
 const getRides = require('./getRides');
 const offerRides = require('./offerRides');
-// const port = 8080;
 const signIn = require('./signIn');
 const port = 8080;
 const publicdir = path.join(__dirname, '..', 'public');
