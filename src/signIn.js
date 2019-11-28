@@ -5,6 +5,8 @@ exports.signinHandler = (req, res) => {
 
 
     if (body.password=== body.confirmPassword) {
+        console.log(body);
+        
         // let newUser = {
         //     firstName: body.firstName,
         //     lastName: body.lastName,
