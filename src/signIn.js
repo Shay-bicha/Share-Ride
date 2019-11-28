@@ -1,6 +1,11 @@
 const fs = require('fs');
-const userFile = 'user.txt'
+const User = require('./models/userModel');
 exports.signinHandler = (req, res)=>{
+    let body = req.body;
+    if (body) {
+        
+    };
+    
     let newUser = {
         firstName: req.firstName,
         lastName: req.lastName,
@@ -8,6 +13,5 @@ exports.signinHandler = (req, res)=>{
         password: password,
         confirmPassword: confirmPassword
     }
-
-    
 }
+
