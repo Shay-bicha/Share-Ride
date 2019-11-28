@@ -4,7 +4,6 @@ exports.signinHandler = (req, res) => {
     let body = req.body;
     if (body.password=== body.confirmPassword) {
         // console.log(body);
-        
         let newUser = {
             firstName: body.firstName,
             lastName: body.lastName,
@@ -29,7 +28,7 @@ exports.signinHandler = (req, res) => {
 exports.loginHandler = (req, res) => {
     let body = req.body;
     try {
-        let user = User.findOne({email: bosy.email})
+        let user = User.findOne({email: body.email})
         user.select('email name password');
         user.exec((err, txt)=>{
             if(err) console.log(err);
