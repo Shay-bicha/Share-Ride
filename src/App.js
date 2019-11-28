@@ -24,6 +24,9 @@ app.use(express.json());
 app.post('/signin', (req, res)=>{
     signiN.signinHandler(req, res);
 });
+app.post('/login', (req, res)=>{
+    signiN.loginHandler(req, res);
+});
 // app.get('/getRide',(req,res)=>{
 //     console.log('get res get');
 //     res.sendFile();
