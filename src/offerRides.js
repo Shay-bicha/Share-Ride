@@ -19,7 +19,6 @@ exports.offerRides = (req, res) => {
                 let result = JSON.parse(file)
                 result.push(newRide);
                 console.log(result);
-                
                 fs.writeFileSync(fileName, JSON.stringify(result));
             }
             catch (err) {
