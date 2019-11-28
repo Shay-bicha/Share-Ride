@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <title>Get ride - driver</title>
+</head>
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Lato', sans-serif;
+        font-size: 100%; 
+        line-height: 1.6;
+    }
+
+
+</style>
+
+<body>
+
+    <form action="/getRides" method="post" class="form">
+
+        <div class="departure-city">
+            <label for="departure" class="departure-city__label">Departure City :</label>
+            <input type="text" class="departure-city__input" name="departure">
+        </div>
+
+
+        <div class="arrival-city">
+            <label for="arrival" class="arrival-city__label">Arrival City :</label>
+            <input type="text" class="arrival-city__input" name="arrival">
+        </div>
+
+
+        <div class="hour">
+            <label for="arrival" class="hour__label">Hour :</label>
+            <input type="text" class="hour__input" name="hour">
+        </div>
+
+        <div class="submit">
+            <input type="submit" value="Submit" class="submit__button">
+        </div>
+        
+    </form>
+
+</body>
+
+</html>
