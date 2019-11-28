@@ -28,8 +28,10 @@ exports.loginHandler = (req, res) => {
     try {
         let user = User.findOne({email: bosy.email})
         user.select('email name password');
-        user.exec()
-
+        user.exec((err, txt)=>{
+            if(err) console.log(err);
+            
+        });
         res.status(200).send("loged suseesfully");
     } catch (error) {
         
