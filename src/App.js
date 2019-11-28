@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const app = express();
 const test = require('./test');
 // const getRides = require('./getRideModule');
-// const offerRides = require('./offerRides');
+const offerRides = require('./offerRides');
 // const port = 8080;
 // const signIN = require('./signin');
 const port = 8080;
@@ -17,10 +17,10 @@ const port = 8080;
 //     signin.signinHandler(req, res);
 // });
 
-// app.post('/offerRides', (req, res)=>{
-//     offerRides.offerRides(req, res);
+app.post('/offerRides', (req, res)=>{
+    offerRides.offerRides(req, res);
     
-// });
+});
 
 // app.post('/getRides', (req, res)=>{
 //     getRides.getRides(req, res);
