@@ -24,5 +24,5 @@ app.post('/getRides', (req, res)=>{
 });
 
 app.listen(process.env,()=>{
-    console.log("listening on port" + port);
+    console.log("listening on port");
 });
