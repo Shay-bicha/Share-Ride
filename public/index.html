@@ -3,6 +3,7 @@
 
 <head>
     <style>
+        
         img {
             z-index: -1;
             right: 0;
@@ -74,7 +75,7 @@
         <br>
         <div  style="display: inline-block;width: 45%; ">
             <!-- Nav tabs -->
-            <h1 style="color: rgb(2, 221, 255);font-weight: 600;">make the world a better place</h1>
+            <h1 style="font-weight: 600;">make the world a better place</h1>
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#home">driver</a>
@@ -92,17 +93,18 @@
                 <div id="home" class="container tab-pane active"><br>
                     <h3>driver</h3>
                     
-                    Departure City:<input  class="form-control w-50" type="text" id="Location" placeholder="Insert your location"><br>
-                    Arrival City:<input  class="form-control w-50" type="text" id="Destination" placeholder="Insert your Destination"><br>
-                    Several seats:<input class="form-control w-50" type="number" id="numberSeats" placeholder="Insert several seats"><br>
-                    Hour:<input class="form-control w-50" type="number" id="Time" placeholder="Insert time now"><br>
-                    <button   class="btn btn-primary" onclick="sendDetails()">Send</button>
+                    Departure City:<input style="margin-left: 13px;"  class=" d-inline form-control w-50" type="text" id="Location" placeholder="Insert your location"><br><br>
+                    Arrival City:<input style="margin-left: 39px;"  class=" d-inline form-control w-50" type="text" id="Destination" placeholder="Insert your Destination"><br><br>
+                    Several seats:<input style="margin-left: 25px;" class=" d-inline form-control w-50" type="number" id="numberSeats" placeholder="Insert several seats"><br><br>
+                    Hour:<input style="margin-left: 80px;" class="d-inline form-control w-50" type="number" id="Time" placeholder="Insert time now"><br><br>
+                    <button style="margin-left: 25px;"  class="w-50 btn btn-primary" onclick="sendDetails()">Send</button>
                 </div>
                 <div id="menu1" class="container tab-pane fade"><br>
                     <h3>passenger</h3>
                     <form class="form">
 
                         <div class="departure-city">
+                            
                             <label for="departure" class="departure-city__label">Departure City :</label>
                             <input type="text" class="departure-city__input" name="departure">
                         </div>
