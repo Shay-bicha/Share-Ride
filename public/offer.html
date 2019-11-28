@@ -12,12 +12,12 @@
     Destination:<input type="text" id="Destination" placeholder="Insert your Destination"><br>
     Several seats:<input type="number" id="numberSeats" placeholder="Insert several seats"><br>
     Departure Time:<input type="text" id="Time" placeholder="Insert time now"><br>
-    <button onclick="sendDtails()">Send</button>
+    <button onclick="sendDetails()">Send</button>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    <script>
       
-       function sendDtails(){
-        const location = document.getElementById('Location').value ;
+       function sendDetails(){
+       const location = document.getElementById('Location').value ;
        const target = document.getElementById('Destination').value;
        const numberOfPlaces = document.getElementById('numberSeats').value;
        const time = document.getElementById('Time').value;

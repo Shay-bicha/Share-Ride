@@ -24,6 +24,10 @@ app.use(express.json());
 app.post('/signin', (req, res)=>{
     signiN.signinHandler(req, res);
 });
+// app.get('/getRide',(req,res)=>{
+//     console.log('get res get');
+//     res.sendFile();
+// })
 
 app.post('/offerRides', (req, res)=>{
     offerRides.offerRides(req, res);
@@ -33,6 +37,6 @@ app.post('/getRides', (req, res)=>{
     getRides.getRides(req, res);
 });
 
-app.listen(port,()=>{
-    console.log("listening on port" + port);
+app.listen(process.env.PORT || 8080,()=>{
+    console.log("listening on port");
 });
