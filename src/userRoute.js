@@ -32,9 +32,11 @@ exports.loginHandler = (req, res) => {
         user.select('email name password');
         user.exec((err, txt)=>{
             if(err) console.log(err);
-            
+            else{
+                res.status(200).send("loged suseesfully");
+            }
         });
-        res.status(200).send("loged suseesfully");
+        
     } catch (error) {
         
     }
