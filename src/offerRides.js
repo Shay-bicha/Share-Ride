@@ -43,10 +43,17 @@ exports.getRides = (req, res) => {
     let body = req.body;
     let ride = rideScheme.find({
         startingPoint: body.location,
-        destination: destination,
-        time: time
+        destination: body.destination,
+        time: body.time
     });
 
     ride.select('startingPoint', 'destination', 'time');
-    ride.exec()
+    ride.exec((err, txt) => {
+        if (err) console.log(err);
+        else {
+            res.status(201).JSON({
+                data: ride
+            })
+        }
+    });
 }
