@@ -3,7 +3,7 @@ const fs = require('fs');
 
 
 
-module.exports.getRide = getRide(req,res){
+module.exports.getRide = function getRide(req,res){
  let data = req.body;
 console.log(data);
 
