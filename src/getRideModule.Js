@@ -3,11 +3,11 @@ const fs = require('fs');
 
 
 
-module.exports.getRide = function getRide(req,res){
+module.exports.getRides = function getRides(req,res){
  let data = req.body;
 console.log(data);
 
-res.status(200);
+return res.status(201).send(data);
 
 }
 
