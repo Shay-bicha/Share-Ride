@@ -13,7 +13,7 @@ app.get('/offerRides', (req, res)=>{
 })
 
 app.get('/getRides', (req, res)=>{
-    getRedes.getRedes(req, res)
+    getRedes.getRides(req, res)
 })
 
 
