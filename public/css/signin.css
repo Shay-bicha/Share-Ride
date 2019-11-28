@@ -1,0 +1,63 @@
+/* Basic Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+    background-image: linear-gradient(to right, rgb(173, 173, 173), rgb(102, 101, 101));
+}
+
+/* Wrapper */
+.wrapper {
+    /* background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%); */
+    margin: 8rem auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form */
+.form {
+    border-radius: 5px;
+    background-color: white;
+    padding: 2rem;
+    width: 50%;
+    background-image: linear-gradient(117deg, #bdc3c7 50%, rgba(0, 0, 0, 0) 50%);
+}
+
+.form > * {
+    margin-bottom: 1rem;
+}
+
+.headline {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+label, input {
+    width: 100%;
+}
+
+input {
+    padding: 0.3rem;
+}
+
+.select-class {
+    border-radius: 5px;
+    width: 100%;
+    padding: 0.3rem;
+
+}
+
+.submit {
+    width: 100%;
+    border-radius: 100px;
+    padding: 0.5rem;
+    outline: none;
+}
