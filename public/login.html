@@ -1,40 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            font-size: 100%;
+            line-height: 1.6;
+        }
+
+        #qoute {
+            color: white;
+            z-index: 2;
+            top: 60px;
+            left: 27px;
+            position: absolute;
+            font-size: 17px;
+        }
+        .main{
+            /* position: absolute; */
+            top: 25%;
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            height: 300px;
+            align-items: center;
+            justify-content: space-evenly
+        }
+        .inputs{
+            width: 50%;
+            border-radius: 7px;
+            height: 14.5%;
+        }
+        #send{
+            width: 25%;
+            border-radius: 7px;
+        }
+        #titleBetterPlace{
+            color: rgb(2, 221, 255);
+            font-weight: 600;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>sare ride</title>
 </head>
+
 <body>
-   <!DOCTYPE html>
-   <html lang="en">
-   <head>
-       <title>Document</title>
-   </head>
-   <body>
+        <p id="qoute"><i> make the world a better place</i></p>
+    <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item ">
+                <a class="nav-link text-white" href="#">
+                    <h1><i class="fas fa-car"></i> share ride</h1>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <h1 id="titleBetterPlace">make the world a better place</h1>
+    <div class="main">
       <h1>Login</h1> 
-      <input type="text" id="userName" placeholder="Insert user name">
-      <input type="password" id="Password" placeholder="Insert Password">
+      <input type="text" id="userName" class="inputs" placeholder="Insert user name">
+      <input type="password" id="Password" class="inputs" placeholder="Insert Password">
       <button id="send" onclick="sendUser()">SEND</button>
+    </div>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script>
+            function sendUser(){
+              const userName = document.getElementById('userName').value;
+              const Password = document.getElementById('Password').value;
+              axios.post('/login' , {
+                  userName : userName ,
+                  Password : Password
+              })
+              .then(function (response) {
+                      console.log(response.data);
+              })
+              .catch(function (error) {
+                      console.log(error);
+              });
+            }
+         </script>
    </body>
    </html>
-   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-   <script>
-      function sendUser(){
-        const userName = document.getElementById('userName').value;
-        const Password = document.getElementById('Password').value;
-        axios.post('/login' , {
-            userName : userName ,
-            Password : Password
-        })
-        .then(function (response) {
-                console.log(response.data);
-        })
-        .catch(function (error) {
-                console.log(error);
-        });
-      }
-   </script>
-</body>
-</html>
+   
+    
