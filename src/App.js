@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const getRides = require('./getRideModule');
 const offerRides = require('./offerRides');
+// const port = 8080;
 const signIN = require('./signin');
 const port = 8080;
 const publicdir = path.join(__dirname, '..', 'public');
@@ -26,6 +27,6 @@ app.post('/getRides', (req, res)=>{
     getRides.getRides(req, res);
 });
 
-app.listen(port,()=>{
-    console.log("listening on port" + port);
+app.listen(process.env.PORT || 8080,()=>{
+    console.log("listening on port");
 });
