@@ -13,6 +13,7 @@ app.use(express.static(publicdir));
 app.use(express.json());
 
 let dbUrl = "mongodb+srv://aschaley123:As123123@cluster0-c0kmd.mongodb.net/shareRide?retryWrites=true&w=majority";
+
 mongoose.connect(dbUrl, {
     useUnifiedTopology: true,
     useNewUrlParser: true
@@ -23,6 +24,12 @@ mongoose.connect(dbUrl, {
 
 app.post('/signin', (req, res) => {
     signin.signinHandler(req, res);
+  
+mongoose.connect(dbUrl,{ useUnifiedTopology: true }, (connection)=>{
+    console.log("connected to db");
+    
+})
+
 });
 
 app.post('/login', (req, res) => {

@@ -24,7 +24,6 @@ exports.signinHandler = (req, res) => {
     };
 }
 
-
 exports.loginHandler = (req, res) => {
     let body = req.body;
    
@@ -42,9 +41,5 @@ exports.loginHandler = (req, res) => {
 }
 
 
-   
-
-
-
-
+  
 
