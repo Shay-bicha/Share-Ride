@@ -1,11 +1,28 @@
-// const express = require('express'),
-const fs = require("fs");
+const fs = require("fs"),
+fileName = 'Rides.txt';
+
+
 
 exports.getRides = (req, res) => {
-  let data = req.body;
-  console.log(data);
+  let getInfo = req.body;
+  fs.readFile(fileName,'utf8',(err, data) => {
+    if (err) throw err;
+    let fileData = JSON.parse(data);
+    console.log(fileData);
+     let result = [];
 
-//   return res.status(201).send(data);
+    fileData.forEach(data => {
+     if(data.location == getInfo.location && data.destination == getInfo.destination && data.time == getInfo.time){
+        result.push({location:data.location,
+                     destination: data.destination,
+                     time:data.time ,
+                     name: 'Dan'});
+     }
+    });
+           console.log(result,'this is result');
+           return res.status(201).send(result);
+  });
+
 };
 
 // get data from client
