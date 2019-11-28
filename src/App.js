@@ -12,6 +12,10 @@ app.use(express.json());
 app.post('/signin', (req, res)=>{
     signin.signinHandler(req, res);
 });
+// app.get('/getRide',(req,res)=>{
+//     console.log('get res get');
+//     res.sendFile();
+// })
 
 app.post('/offerRides', (req, res)=>{
     offerRides.offerRides(req, res);

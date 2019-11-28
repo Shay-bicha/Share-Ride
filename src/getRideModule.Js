@@ -5,6 +5,8 @@ fileName = 'Rides.txt';
 
 exports.getRides = (req, res) => {
   let getInfo = req.body;
+  console.log(getInfo,'post Request');
+  
   fs.readFile(fileName,'utf8',(err, data) => {
     if (err) throw err;
     let fileData = JSON.parse(data);
