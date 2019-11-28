@@ -7,7 +7,7 @@ app.use(express.static(publicdir));
 
 
 
+
 app.listen(port,()=>{
     console.log("listening on port" + port);
-    
-})
+});
