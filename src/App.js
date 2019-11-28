@@ -16,6 +16,16 @@ app.post('/signin', (req, res)=>{
     signIn.signinHandler(req, res);
 });
 
+app.post('/login', (req, res)=>{
+    signiN.loginHandler(req, res);
+});
+// app.get('/getRide',(req,res)=>{
+//     console.log('get res get');
+//     res.sendFile();
+// })
+
+
+
 app.post('/offerRides', (req, res)=>{
     offerRides.offerRides(req, res);
     
