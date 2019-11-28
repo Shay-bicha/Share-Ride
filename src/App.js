@@ -23,6 +23,6 @@ app.post('/getRides', (req, res)=>{
     getRides.getRides(req, res);
 });
 
-app.listen(process.env,()=>{
+app.listen(process.env.PORT || 8080,()=>{
     console.log("listening on port");
 });
