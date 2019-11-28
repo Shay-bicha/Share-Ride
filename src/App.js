@@ -9,12 +9,12 @@ app.use(express.static(publicdir));
 app.use(express.json());
 
 app.post('/offerRides', (req, res)=>{
-    offerRides.offerRides(req, res)
-})
+    offerRides.offerRides(req, res);
+});
 
 app.post('/getRides', (req, res)=>{
-    getRides.getRides(req, res)
-})
+    getRides.getRides(req, res);
+});
 
 app.listen(port,()=>{
     console.log("listening on port" + port);
