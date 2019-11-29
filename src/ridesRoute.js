@@ -10,23 +10,9 @@ exports.offerRides = (req, res) => {
     let destination = body.destination;
     let seats = body.Seats;
     let time = body.time;
-    let newRide = { location: location, destination: destination, seats: seats, time: time };
 
     //! write to the rides file
-    fs.readFile(fileName, 'utf-8', (err, file) => {
-        if (err) throw err;
-        else {
-            try {
-                let result = JSON.parse(file)
-                result.push(newRide);
-                console.log(result);
-                fs.writeFileSync(fileName, JSON.stringify(result));
-            }
-            catch (err) {
-                return []
-            }
-        }
-    });
+    
     let newRide = { startingPoint: startingPoint, destination: destination, seats: seats, time: time }
     //! insert to the database
     rideScheme.create(newRide,

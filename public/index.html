@@ -113,11 +113,12 @@
                             <input style="margin-left: 50px;" type="text" class="d-inline form-control w-50" placeholder="Insert your Destination" name="arrival">
                         </div><br>
 
-
                         <div class="hour">
                             Hour : <input style="margin-left: 90px;" type="number" placeholder="Insert time now" class="d-inline form-control w-50" name="hour">
                             <!-- <label for="hour" class="hour__label">Hour :</label>
                             <input type="number" id="hour" class="hour__input" name="hour"> -->
+                            <label for="hour" class="hour__label">Hour :</label>
+                            <input type="number" id="hour" class="hour__input" name="hour">
                         </div>
 
                         <div class="submit">
@@ -140,7 +141,8 @@
             const location = document.getElementById('Location').value;
             const target = document.getElementById('Destination').value;
             const numberOfPlaces = document.getElementById('numberSeats').value;
-            const time = document.getElementById('hour').value;
+            const time = document.getElementById('Time').value;
+          
             axios.post('/offerRides', {
                 startingPoint: location,
                 destination: target,
@@ -155,6 +157,7 @@
                     console.log(error);
                 });
         }
+
         $(document).ready(function () {
             $("#driver").click(function () { $(this).hide(); });
         });
