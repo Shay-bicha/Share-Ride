@@ -34,10 +34,12 @@ exports.getRides = (req, res) => {
         time: body.time
     });
 
-    ride.select('startingPoint', 'destination', 'time');
+    ride.select('startingPoint destination time');
     ride.exec((err, txt) => {
         if (err) console.log(err);
         else {
+            console.log(txt);
+            
             res.status(201).JSON({
                 data: txt
             })
