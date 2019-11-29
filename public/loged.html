@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        img {
+            z-index: -1;
+            right: 0;
+            position: absolute;
+            height: 600px;
+            width: 800px;
+            display: inline-block;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            font-size: 100%;
+            line-height: 1.6;
+        }
+
+        #qoute {
+            color: white;
+            z-index: 2;
+            top: 60px;
+            left: 27px;
+            position: absolute;
+            font-size: 17px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>sare ride</title>
+</head>
+
+<body>
+    <p id="qoute"><i> make the world a better place</i></p>
+    <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item ">
+                <a class="nav-link text-white" href="#">
+                    <h1><i class="fas fa-car"></i> share ride</h1>
+                </a>
+            </li>
+            <li style="margin-top: 20px;" class="nav-item">
+                <a class="nav-link" href="#">│ pick a ride</a>
+            </li>
+            <li style="margin-top: 20px;" class="nav-item">
+                <a class="nav-link" href="#">│ Find a driver</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- <img style="opacity: 0.5; position: relative;" class="img-fluid"
+        src="https://cdn.pixabay.com/photo/2015/06/05/15/02/audi-798530_1280.jpg" alt="car">-->
+
+    <div>
+
+
+        <img src="audi-798530.jpg" alt="car">
+        <br>
+        <div style="display: inline-block;width: 45%; ">
+            <!-- Nav tabs -->
+            <h1 style="font-weight: 600;">make the world a better place</h1>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home">driver</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu1">passenger</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu2">about us</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div id="home" class="container tab-pane active"><br>
+                    <h3>driver</h3>
+
+                    Departure City:<input style="margin-left: 13px;" class=" d-inline form-control w-50" type="text"
+                        id="Location" placeholder="Insert your location"><br><br>
+                    Arrival City:<input style="margin-left: 39px;" class=" d-inline form-control w-50" type="text"
+                        id="Destination" placeholder="Insert your Destination"><br><br>
+                    Several seats:<input style="margin-left: 25px;" class=" d-inline form-control w-50" type="number"
+                        id="numberSeats" placeholder="Insert several seats"><br><br>
+                    Hour:<input style="margin-left: 80px;" class="d-inline form-control w-50" type="number" id="Time"
+                        placeholder="Insert time now"><br><br>
+                    <button style="margin-left: 25px;" class="w-50 btn btn-primary"
+                        onclick="sendDetails()">Send</button>
+                </div>
+                <div id="menu1" class="container tab-pane fade"><br>
+                    <h3>passenger</h3>
+                    <form class="form">
+
+                        <div class="departure-city">
+
+                            Departure City :
+                            <input style="margin-left: 25px;" type="text"
+                                class="departure-city__input d-inline form-control w-50"
+                                placeholder="Insert your location" name="departure">
+                        </div><br>
+                        <div class="arrival-city">
+                            Arrival City :
+                            <input style="margin-left: 50px;" type="text"
+                                class="arrival-city__input d-inline form-control w-50"
+                                placeholder="Insert your Destination" name="arrival">
+                        </div><br>
+
+                        <div class="hour">
+                            Hour : <input style="margin-left: 90px;" type="number" placeholder="Insert time now"
+                                class="d-inline form-control w-50 hour__input" name="hour">
+                            <!-- <label for="hour" class="hour__label">Hour :</label>
+                            <input type="number" id="hour" class="hour__input" name="hour"> -->
+                            <!-- <label for="hour" class="hour__label">Hour :</label>
+                            <input type="number" id="hour" class="hour__input" name="hour"> -->
+                        </div>
+                        <br>
+                        <div>
+                            <button style="margin-left: 25px;"
+                                class="w-50 btn btn-primary submit__button">submit</button>
+                            <!-- <input type="submit" value="Submit" > -->
+                        </div>
+
+                        <!-- </form> -->
+                </div>
+                <div id="menu2" class="container tab-pane fade"><br>
+                    <h3>about us</h3>
+                    <p>share ride is a best solution for the Air Pollution</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        function sendDetails() {
+            const location = document.getElementById('Location').value;
+            const target = document.getElementById('Destination').value;
+            const numberOfPlaces = document.getElementById('numberSeats').value;
+            const time = document.getElementById('Time').value;
+
+            axios.post('/offerRides', {
+                startingPoint: location,
+                destination: target,
+                Seats: Number(numberOfPlaces),
+                time: Number(time)
+            })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+        const submitButton = document.querySelector('.submit__button')
+        // Form Data and Axios
+        submitButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            const departureCity = document.querySelector('.departure-city__input').value;
+            const arrivalCity = document.querySelector('.arrival-city__input').value;
+            const hour = Number(document.querySelector('.hour__input').value);
+            console.log(hour, arrivalCity, departureCity)
+            // Reset The Form
+            // form.reset();
+            axios.post('/getRides', {
+                startingPoint: departureCity,
+                destination: arrivalCity,
+                time: hour
+            })
+                .then(function (response) {
+                    if (response.data.data.lenght < 1) {
+                        console.log("you dont get mach");
+                    }
+                    console.log(response);
+                    let arryDrivers = response.data.data;
+                    if (arryDrivers.length > 0) {
+                        console.log("length > 0")
+                    }
+                    else {
+                        console.log(arryDrivers[0], "ob(0)")
+                        console.log(arryDrivers.length, "array.length")
+                    }
+                    document.getElementById('passengerdiv').innerText = "ok"
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    document.getElementById('passengerdiv').innerHTML = "<div id=`sorrywe`>sorry we dont have a driver to you ride</div>";
+                });
+        })
+    </script>
+</body>
+
+</html>
