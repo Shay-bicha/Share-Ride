@@ -48,6 +48,13 @@
             color: rgb(2, 221, 255);
             font-weight: 600;
         }
+        #inputsInvalid{
+            position: absolute;
+            top: 70%;
+            left: 36%;
+            color: red;
+        }
+
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
@@ -89,6 +96,12 @@
               })
               .then(function (response) {
                       console.log(response.data);
+                      if(response.status == 200){
+                        window.location.replace("/loged.html");
+                      }
+                      else{
+                        document.body.innerHTML += `<p id = "inputsInvalid">*User name or Password does not exsit</p>`;
+                      }
               })
               .catch(function (error) {
                       console.log(error);
