@@ -115,7 +115,6 @@
                             <input type="text" class="arrival-city__input" name="arrival">
                         </div>
 
-
                         <div class="hour">
                             <label for="hour" class="hour__label">Hour :</label>
                             <input type="number" id="hour" class="hour__input" name="hour">
@@ -142,6 +141,7 @@
             const target = document.getElementById('Destination').value;
             const numberOfPlaces = document.getElementById('numberSeats').value;
             const time = document.getElementById('hour').value;
+            
             axios.post('/offerRides', {
                 startingPoint: location,
                 destination: target,
@@ -156,6 +156,7 @@
                     console.log(error);
                 });
         }
+        
         $(document).ready(function () {
             $("#driver").click(function () { $(this).hide(); });
         });
