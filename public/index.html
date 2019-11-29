@@ -101,9 +101,9 @@
                 </div>
                 <div id="menu1" class="container tab-pane fade"><br>
                     <h3>passenger</h3>
-                    <form class="form">
-
-                        <div class="departure-city">
+                    <!-- <form class="form"> -->
+<div id="passengerdiv">
+                        <div  class="departure-city">
                             
                             Departure City :
                             <input style="margin-left: 25px;" type="text" class="departure-city__input d-inline form-control w-50" placeholder="Insert your location" name="departure">
@@ -126,7 +126,7 @@
                             <!-- <input type="submit" value="Submit" > -->
                         </div>
 
-                    </form>
+                    <!-- </form> -->
                 </div>
                 <div id="menu2" class="container tab-pane fade"><br>
                     <h3>about us</h3>
@@ -181,10 +181,23 @@
                 time: hour
             })
                 .then(function (response) {
+                    if(response.data.data.lenght <1){
+                        console.log("you dont get mach");
+                    }
                     console.log(response);
+                    let arryDrivers = response.data.data;
+                    if (arryDrivers.length > 0){
+                        console.log("length > 0")
+                    }
+                    else{
+                        console.log(arryDrivers[0] ,"ob(0)")
+                        console.log(arryDrivers.length, "array.length")
+                    }
+                    document.getElementById('passengerdiv').innerText="ok"
                 })
                 .catch(function (error) {
                     console.log(error);
+                    document.getElementById('passengerdiv').innerHTML="<div id=`sorrywe`>sorry we dont have a driver to you ride</div>";
                 });
         }
     </script>
