@@ -36,10 +36,18 @@ exports.getRides = (req, res) => {
 
     ride.select('startingPoint destination time');
     ride.exec((err, txt) => {
+<<<<<<< HEAD
         if (err) {console.log(err);
             if(rideScheme.length == 0 ){
                 console.log("the array is empty");    
             }
+=======
+        if (err) {
+            console.log(err);
+            res.status(404).json({
+                data: "not found"
+            })
+>>>>>>> 92b1ea03acacd140cbbe16d1b997e228a31c5a4e
         }
         else {
             console.log(txt); if(rideScheme.length == 0 ){
