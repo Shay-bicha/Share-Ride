@@ -19,7 +19,6 @@ mongoose.connect(dbUrl, {
     useNewUrlParser: true
 }, (connection) => {
     console.log("connected to db");
-
 })
 
 app.post('/signin', (req, res) => {

@@ -1,1 +1,0 @@
-[{"Hour": "8:30", "Departure City": "Tel Aviv","Arrival City": "Jerusalem"}]

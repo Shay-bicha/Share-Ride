@@ -14,7 +14,7 @@ let rideSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    // driver:User.firstName
+   seats: Number
 });
   
 
