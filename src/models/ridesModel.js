@@ -16,7 +16,6 @@ let rideSchema = mongoose.Schema({
     },
    seats: Number
 });
-  
 
 let newride = mongoose.model('rides', rideSchema);
 module.exports = newride;
