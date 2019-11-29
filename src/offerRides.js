@@ -6,11 +6,11 @@ exports.offerRides = (req, res) => {
     //* get data from user
     let body = req.body;
     //* console.log(body);
-    let location = body.location;
+    let location = body.startingPoint;
     let destination = body.destination;
     let seats = body.Seats;
     let time = body.time;
-    let newRide = { location: location, destination: destination, seats: seats, time: time };
+    let newRide = { startingPoint: location, destination: destination, seats: seats, time: time };
 
     //! write to the rides file
     fs.readFile(fileName, 'utf-8', (err, file) => {
