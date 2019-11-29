@@ -106,23 +106,24 @@
                         <div class="departure-city">
                             
                             Departure City :
-                            <input style="margin-left: 25px;" type="text" class="d-inline form-control w-50" placeholder="Insert your location" name="departure">
+                            <input style="margin-left: 25px;" type="text" class="departure-city__input d-inline form-control w-50" placeholder="Insert your location" name="departure">
                         </div><br>
                         <div class="arrival-city">
                            Arrival City :
-                            <input style="margin-left: 50px;" type="text" class="d-inline form-control w-50" placeholder="Insert your Destination" name="arrival">
+                            <input style="margin-left: 50px;" type="text" class="arrival-city__input d-inline form-control w-50" placeholder="Insert your Destination" name="arrival">
                         </div><br>
 
                         <div class="hour">
-                            Hour : <input style="margin-left: 90px;" type="number" placeholder="Insert time now" class="d-inline form-control w-50" name="hour">
+                            Hour : <input style="margin-left: 90px;" type="number" placeholder="Insert time now" class="d-inline form-control w-50 hour__input" name="hour">
                             <!-- <label for="hour" class="hour__label">Hour :</label>
                             <input type="number" id="hour" class="hour__input" name="hour"> -->
-                            <label for="hour" class="hour__label">Hour :</label>
-                            <input type="number" id="hour" class="hour__input" name="hour">
+                            <!-- <label for="hour" class="hour__label">Hour :</label>
+                            <input type="number" id="hour" class="hour__input" name="hour"> -->
                         </div>
-
-                        <div class="submit">
-                            <input type="submit" value="Submit" class="submit__button">
+<br>
+                        <div >
+                            <button style="margin-left: 25px;" onclick="sendPass()"  class="w-50 btn btn-primary">submit</button>
+                            <!-- <input type="submit" value="Submit" > -->
                         </div>
 
                     </form>
@@ -158,20 +159,22 @@
                 });
         }
 
-        $(document).ready(function () {
-            $("#driver").click(function () { $(this).hide(); });
-        });
-        // Form variables
-        const form = document.querySelector('.form');
-        const submitButton = document.querySelector('.submit__button')
+        // $(document).ready(function () {
+        //     $("#driver").click(function () { $(this).hide(); });
+        // });
+        // // Form variables
+        // const form = document.querySelector('.form');
+        // const submitButton = document.querySelector('.submit__button')
         // Form Data and Axios
-        submitButton.addEventListener('click', (e) => {
-            e.preventDefault();
+        // submitButton.addEventListener('click', (e) => 
+            function sendPass(){
+            // e.preventDefault();
             const departureCity = document.querySelector('.departure-city__input').value;
             const arrivalCity = document.querySelector('.arrival-city__input').value;
             const hour = Number(document.querySelector('.hour__input').value);
+           console.log(hour,arrivalCity,departureCity)
             // Reset The Form
-            form.reset();
+            // form.reset();
             axios.post('/getRides', {
                 startingPoint: departureCity,
                 destination: arrivalCity,
@@ -183,7 +186,7 @@
                 .catch(function (error) {
                     console.log(error);
                 });
-        })
+        }
     </script>
 </body>
 
