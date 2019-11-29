@@ -1,2 +1,0 @@
-[{"location":"tel aviv","destination":"hifa","seats":2,"time"12"},
-{"location":"hadera","destination":"lod","seats":3,"time":"11:40"}]
