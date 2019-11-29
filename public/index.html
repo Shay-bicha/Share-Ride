@@ -143,10 +143,10 @@
             const numberOfPlaces = document.getElementById('numberSeats').value;
             const hour = document.getElementById('hour').value;
             axios.post('/offerRides', {
-                location: location,
+                startingPoint: location,
                 destination: target,
                 Seats: Number(numberOfPlaces),
-                hour: time
+                time: time
             })
                 .then(function (response) {
                     console.log(response);
@@ -170,7 +170,7 @@
             // Reset The Form
             form.reset();
             axios.post('/getRides', {
-                location: departureCity,
+                startingPoint: departureCity,
                 destination: arrivalCity,
                 time: hour
             })
