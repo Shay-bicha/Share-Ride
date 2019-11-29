@@ -35,8 +35,7 @@ exports.getRides = (req, res) => {
         if (err) console.log(err);
         else {
             console.log(txt);
-
-            res.status(201).JSON({
+            res.status(200).json({
                 data: txt
             })
         }
