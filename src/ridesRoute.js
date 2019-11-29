@@ -6,13 +6,11 @@ exports.offerRides = (req, res) => {
     //* get data from user
     let body = req.body;
     //* console.log(body);
-
-    let startingPoint = body.startingPoint;
+    let location = body.location;
     let destination = body.destination;
     let seats = body.Seats;
     let time = body.time;
-    
-    let newRideFile = { startingPoint: startingPoint, destination: destination, seats: seats, time: time };
+    let newRide = { location: location, destination: destination, seats: seats, time: time };
 
     //! write to the rides file
     fs.readFile(fileName, 'utf-8', (err, file) => {
@@ -20,7 +18,7 @@ exports.offerRides = (req, res) => {
         else {
             try {
                 let result = JSON.parse(file)
-                result.push(newRideFile);
+                result.push(newRide);
                 console.log(result);
                 fs.writeFileSync(fileName, JSON.stringify(result));
             }
@@ -31,16 +29,15 @@ exports.offerRides = (req, res) => {
     });
     let newRide = { startingPoint: startingPoint, destination: destination, seats: seats, time: time }
     //! insert to the database
-  
-    //! insert to the database
-    rideScheme.create(body, (err, success) => {
-        if (err) console.log(err);
-        else {
-            res.status(201).json({
-                data: "successfully submitted"
-            });
-        }
-    });
+    rideScheme.create(newRide,
+        (err, success) => {
+            if (err) console.log(err);
+            else {
+                res.status(201).JSON({
+                    data: "successfully submitted"
+                });
+            }
+        });
 }
 
 exports.getRides = (req, res) => {
@@ -51,7 +48,7 @@ exports.getRides = (req, res) => {
         time: body.time
     });
 
-    ride.select('startingPoint', 'destination', 'time');
+    ride.select('startingPoint destination time');
     ride.exec((err, txt) => {
         if (err) console.log(err);
         else {

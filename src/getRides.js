@@ -1,8 +1,6 @@
 const fs = require("fs"),
 fileName = 'Rides.txt';
 
-
-
 exports.getRides = (req, res) => {
   let getInfo = req.body;
   console.log(getInfo,'post Request');

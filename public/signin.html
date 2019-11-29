@@ -8,9 +8,31 @@
     <link rel="stylesheet" href="./css/signin.css">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <title>sign-In</title>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+            integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
+
 <body>
+
+        <p id="qoute"><i> make the world a better place</i></p>
+        <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link text-white" href="#">
+                        <h1><i class="fas fa-car"></i> share ride</h1>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    
+        <h1 id="titleBetterPlace" style="color: rgb(2, 221, 255);font-weight: 600;">make the world a better place</h1>
 
     <div class="wrapper">
 
@@ -81,7 +103,8 @@
                     email: email,
                     password: password,
                     confirmPassword: passwordConfirm,
-                    gender: selectClass
+                    gender: selectClass,
+                    age:25
                 })
                 .then(function (response) {
                     console.log(response);

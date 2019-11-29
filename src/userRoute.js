@@ -2,7 +2,7 @@ const fs = require('fs');
 const User = require('./models/userModel');
 exports.signinHandler = (req, res) => {
     let body = req.body;
-    if (body.password=== body.confirmPassword) {
+    if (body.password === body.confirmPassword) {
         // console.log(body);
         let newUser = {
             firstName: body.firstName,
@@ -14,11 +14,13 @@ exports.signinHandler = (req, res) => {
             age: body.age
         }
         console.log(newUser);
-        
-        User.create(newUser, (err, success)=>{
-            if(err) console.log(err);
-            else{
-                console.log(success);
+
+        User.create(newUser, (err, success) => {
+            if (err) console.log(err);
+            else {
+                res.status(201).json({
+                    data: "success"
+                })
             }
         });
     };
@@ -26,24 +28,22 @@ exports.signinHandler = (req, res) => {
 
 exports.loginHandler = (req, res) => {
     let body = req.body;
-   
     try {
-        let user = User.findOne({email: body.email})
+        let user = User.findOne({ email: body.email })
         user.select('email name password');
-        user.exec((err, txt)=>{
-            if(err) console.log(err);
-            else{
+        user.exec((err, txt) => {
+            if (err) console.log(err);
+            else {
                 res.status(200).json({
                     data: "loged suseesfully"
                 });
             }
         });
-        
     } catch (error) {
-        
+        console.log(error);
     }
 }
 
 
-  
+
 
