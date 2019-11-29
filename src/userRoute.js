@@ -19,7 +19,7 @@ exports.signinHandler = (req, res) => {
             if (err) console.log(err);
             else {
                 res.status(201).json({
-                    data: "signed in successfully"
+                    data: "success"
                 })
             }
         });

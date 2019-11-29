@@ -31,20 +31,12 @@ exports.offerRides = (req, res) => {
     });
     let newRide = { startingPoint: startingPoint, destination: destination, seats: seats, time: time }
     //! insert to the database
-    rideScheme.create(newRide,
-        (err, success) => {
-            if (err) console.log(err);
-            else {
-                res.status(201).JSON({
-                    data: "successfully submitted"
-                });
-            }
-        });
+  
     //! insert to the database
     rideScheme.create(body, (err, success) => {
         if (err) console.log(err);
         else {
-            res.status(201).JSON({
+            res.status(201).json({
                 data: "successfully submitted"
             });
         }
