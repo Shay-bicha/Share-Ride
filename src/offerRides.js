@@ -17,11 +17,15 @@ exports.offerRides = (req, res) => {
 
     //! insert to the database
     rideScheme.create(newRide, (err, success) => {
-        if (err) console.log(err);
+        if (err){
+            console.log(err);
+            console.log(rideScheme);
+        }
         else {
             res.status(201).json({
                 data: "successfully submitted"
             });
+            console.log(rideScheme);
         }
     });
 }
@@ -32,9 +36,15 @@ exports.getRides = (req, res) => {
 
     ride.select('startingPoint destination time');
     ride.exec((err, txt) => {
-        if (err) console.log(err);
+        if (err) {console.log(err);
+            if(rideScheme.length == 0 ){
+                console.log("the array is empty");    
+            }
+        }
         else {
-            console.log(txt);
+            console.log(txt); if(rideScheme.length == 0 ){
+                console.log("the array is empty");    
+            }
             res.status(200).json({
                 data: txt
             })
