@@ -118,7 +118,7 @@
 
                         <div class="hour">
                             <label for="hour" class="hour__label">Hour :</label>
-                            <input type="number" class="hour__input" name="hour">
+                            <input type="number" id="hour" class="hour__input" name="hour">
                         </div>
 
                         <div class="submit">
@@ -141,7 +141,7 @@
             const location = document.getElementById('Location').value;
             const target = document.getElementById('Destination').value;
             const numberOfPlaces = document.getElementById('numberSeats').value;
-            const hour = document.getElementById('hour').value;
+            const time = document.getElementById('hour').value;
             axios.post('/offerRides', {
                 startingPoint: location,
                 destination: target,
@@ -150,6 +150,7 @@
             })
                 .then(function (response) {
                     console.log(response);
+
                 })
                 .catch(function (error) {
                     console.log(error);
