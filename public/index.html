@@ -3,7 +3,6 @@
 
 <head>
     <style>
-        
         img {
             z-index: -1;
             right: 0;
@@ -73,7 +72,7 @@
 
         <img src="audi-798530.jpg" alt="car">
         <br>
-        <div  style="display: inline-block;width: 45%; ">
+        <div style="display: inline-block;width: 45%; ">
             <!-- Nav tabs -->
             <h1 style="font-weight: 600;">make the world a better place</h1>
             <ul class="nav nav-tabs">
@@ -92,41 +91,59 @@
             <div class="tab-content">
                 <div id="home" class="container tab-pane active"><br>
                     <h3>driver</h3>
-                    
-                    Departure City:<input style="margin-left: 13px;"  class=" d-inline form-control w-50" type="text" id="Location" placeholder="Insert your location"><br><br>
-                    Arrival City:<input style="margin-left: 39px;"  class=" d-inline form-control w-50" type="text" id="Destination" placeholder="Insert your Destination"><br><br>
-                    Several seats:<input style="margin-left: 25px;" class=" d-inline form-control w-50" type="number" id="numberSeats" placeholder="Insert several seats"><br><br>
-                    Hour:<input style="margin-left: 80px;" class="d-inline form-control w-50" type="number" id="Time" placeholder="Insert time now"><br><br>
-                    <button style="margin-left: 25px;"  class="w-50 btn btn-primary" onclick="sendDetails()">Send</button>
+
+                    Departure City:<input style="margin-left: 13px;" class=" d-inline form-control w-50" type="text"
+                        id="Location" placeholder="Insert your location"><br><br>
+                    Arrival City:<input style="margin-left: 39px;" class=" d-inline form-control w-50" type="text"
+                        id="Destination" placeholder="Insert your Destination"><br><br>
+                    Several seats:<input style="margin-left: 25px;" class=" d-inline form-control w-50" type="number"
+                        id="numberSeats" placeholder="Insert several seats"><br><br>
+                    Hour:<input style="margin-left: 80px;" class="d-inline form-control w-50" type="number" id="Time"
+                        placeholder="Insert time now"><br><br>
+                    <button style="margin-left: 25px;" class="w-50 btn btn-primary"
+                        onclick="sendDetails()">Send</button>
                 </div>
                 <div id="menu1" class="container tab-pane fade"><br>
                     <h3>passenger</h3>
+<<<<<<< HEAD
                     <form class="form">
 
                         <div class="departure-city">
+
+=======
+                    <!-- <form class="form"> -->
+<div id="passengerdiv">
+                        <div  class="departure-city">
                             
+>>>>>>> c09b661a496e172f66d826a260ac4e8e8924a63a
                             Departure City :
-                            <input style="margin-left: 25px;" type="text" class="departure-city__input d-inline form-control w-50" placeholder="Insert your location" name="departure">
+                            <input style="margin-left: 25px;" type="text"
+                                class="departure-city__input d-inline form-control w-50"
+                                placeholder="Insert your location" name="departure">
                         </div><br>
                         <div class="arrival-city">
-                           Arrival City :
-                            <input style="margin-left: 50px;" type="text" class="arrival-city__input d-inline form-control w-50" placeholder="Insert your Destination" name="arrival">
+                            Arrival City :
+                            <input style="margin-left: 50px;" type="text"
+                                class="arrival-city__input d-inline form-control w-50"
+                                placeholder="Insert your Destination" name="arrival">
                         </div><br>
 
                         <div class="hour">
-                            Hour : <input style="margin-left: 90px;" type="number" placeholder="Insert time now" class="d-inline form-control w-50 hour__input" name="hour">
+                            Hour : <input style="margin-left: 90px;" type="number" placeholder="Insert time now"
+                                class="d-inline form-control w-50 hour__input" name="hour">
                             <!-- <label for="hour" class="hour__label">Hour :</label>
                             <input type="number" id="hour" class="hour__input" name="hour"> -->
                             <!-- <label for="hour" class="hour__label">Hour :</label>
                             <input type="number" id="hour" class="hour__input" name="hour"> -->
                         </div>
-<br>
-                        <div >
-                            <button style="margin-left: 25px;" onclick="sendPass()"  class="w-50 btn btn-primary">submit</button>
+                        <br>
+                        <div>
+                            <button style="margin-left: 25px;"
+                                class="w-50 btn btn-primary submit__button">submit</button>
                             <!-- <input type="submit" value="Submit" > -->
                         </div>
 
-                    </form>
+                    <!-- </form> -->
                 </div>
                 <div id="menu2" class="container tab-pane fade"><br>
                     <h3>about us</h3>
@@ -143,7 +160,7 @@
             const target = document.getElementById('Destination').value;
             const numberOfPlaces = document.getElementById('numberSeats').value;
             const time = document.getElementById('Time').value;
-          
+
             axios.post('/offerRides', {
                 startingPoint: location,
                 destination: target,
@@ -159,20 +176,16 @@
                 });
         }
 
-        // $(document).ready(function () {
-        //     $("#driver").click(function () { $(this).hide(); });
-        // });
-        // // Form variables
-        // const form = document.querySelector('.form');
-        // const submitButton = document.querySelector('.submit__button')
+    
+        const submitButton = document.querySelector('.submit__button')
         // Form Data and Axios
-        // submitButton.addEventListener('click', (e) => 
-            function sendPass(){
-            // e.preventDefault();
+        submitButton.addEventListener('click', (e) => {
+        
+            e.preventDefault();
             const departureCity = document.querySelector('.departure-city__input').value;
             const arrivalCity = document.querySelector('.arrival-city__input').value;
             const hour = Number(document.querySelector('.hour__input').value);
-           console.log(hour,arrivalCity,departureCity)
+            console.log(hour, arrivalCity, departureCity)
             // Reset The Form
             // form.reset();
             axios.post('/getRides', {
@@ -181,12 +194,25 @@
                 time: hour
             })
                 .then(function (response) {
+                    if(response.data.data.lenght <1){
+                        console.log("you dont get mach");
+                    }
                     console.log(response);
+                    let arryDrivers = response.data.data;
+                    if (arryDrivers.length > 0){
+                        console.log("length > 0")
+                    }
+                    else{
+                        console.log(arryDrivers[0] ,"ob(0)")
+                        console.log(arryDrivers.length, "array.length")
+                    }
+                    document.getElementById('passengerdiv').innerText="ok"
                 })
                 .catch(function (error) {
                     console.log(error);
+                    document.getElementById('passengerdiv').innerHTML="<div id=`sorrywe`>sorry we dont have a driver to you ride</div>";
                 });
-        }
+        })
     </script>
 </body>
 
