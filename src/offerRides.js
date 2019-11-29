@@ -6,11 +6,13 @@ exports.offerRides = (req, res) => {
     //* get data from user
     let body = req.body;
     //* console.log(body);
-    let location = body.startingPoint;
+
+    let startingPoint = body.startingPoint;
     let destination = body.destination;
     let seats = body.Seats;
     let time = body.time;
-    let newRide = { startingPoint: location, destination: destination, seats: seats, time: time };
+    
+    let newRideFile = { startingPoint: startingPoint, destination: destination, seats: seats, time: time };
 
     //! write to the rides file
     fs.readFile(fileName, 'utf-8', (err, file) => {
@@ -18,7 +20,7 @@ exports.offerRides = (req, res) => {
         else {
             try {
                 let result = JSON.parse(file)
-                result.push(newRide);
+                result.push(newRideFile);
                 console.log(result);
                 fs.writeFileSync(fileName, JSON.stringify(result));
             }
@@ -27,7 +29,17 @@ exports.offerRides = (req, res) => {
             }
         }
     });
-
+    let newRide = { startingPoint: startingPoint, destination: destination, seats: seats, time: time }
+    //! insert to the database
+    rideScheme.create(newRide,
+        (err, success) => {
+            if (err) console.log(err);
+            else {
+                res.status(201).JSON({
+                    data: "successfully submitted"
+                });
+            }
+        });
     //! insert to the database
     rideScheme.create(body, (err, success) => {
         if (err) console.log(err);
