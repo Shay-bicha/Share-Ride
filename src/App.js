@@ -4,8 +4,7 @@ const mongodb = require('mongodb');
 const mongoose = require('mongoose');
 const app = express();
 const test = require('./test');
-const getRides = require('./getRides');
-const offerRides = require('./offerRides');
+const rides = require('./offerRides');
 const signin = require('./userRoute');
 const port = 8080;
 const publicdir = path.join(__dirname, '..', 'public');
@@ -38,11 +37,11 @@ app.post('/login', (req, res) => {
 // })
 
 app.post('/offerRides', (req, res) => {
-    offerRides.offerRides(req, res);
+    rides.offerRides(req, res);
 });
 
 app.post('/getRides', (req, res) => {
-    getRides.getRides(req, res);
+    rides.getRides(req, res);
 });
 
 
