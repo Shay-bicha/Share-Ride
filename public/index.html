@@ -105,17 +105,10 @@
                 </div>
                 <div id="menu1" class="container tab-pane fade"><br>
                     <h3>passenger</h3>
-<<<<<<< HEAD
                     <form class="form">
 
                         <div class="departure-city">
 
-=======
-                    <!-- <form class="form"> -->
-<div id="passengerdiv">
-                        <div  class="departure-city">
-                            
->>>>>>> c09b661a496e172f66d826a260ac4e8e8924a63a
                             Departure City :
                             <input style="margin-left: 25px;" type="text"
                                 class="departure-city__input d-inline form-control w-50"
@@ -175,12 +168,9 @@
                     console.log(error);
                 });
         }
-
-    
         const submitButton = document.querySelector('.submit__button')
         // Form Data and Axios
         submitButton.addEventListener('click', (e) => {
-        
             e.preventDefault();
             const departureCity = document.querySelector('.departure-city__input').value;
             const arrivalCity = document.querySelector('.arrival-city__input').value;
