@@ -17,7 +17,7 @@ exports.offerRides = (req, res) => {
 
     //! insert to the database
     rideScheme.create(newRide, (err, success) => {
-        if (err){
+        if (err) {
             console.log(err);
             console.log(rideScheme);
         }
@@ -40,14 +40,14 @@ exports.getRides = (req, res) => {
             console.log(err);
             res.status(404).json({
                 data: "not found"
-            })
+            });
         }
+
         else {
-            console.log(txt);   
-            
+            console.log(txt);
             res.status(200).json({
                 data: txt
-            })
+            });
         }
     });
 }
