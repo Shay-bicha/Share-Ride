@@ -29,7 +29,7 @@ exports.offerRides = (req, res) => {
 exports.getRides = (req, res) => {
     let body = req.body;
     let ride = rideScheme.find({
-        startingPoint: body.location,
+        startingPoint: body.startingPoint,
         destination: body.destination,
         time: body.time
     });
