@@ -86,6 +86,7 @@
 
     <script>
         // SignIn Variables
+        const form = document.querySelector('.form');
         const submitBtn = document.querySelector('.submit');
 
         submitBtn.addEventListener('click', (e) => {
@@ -107,7 +108,9 @@
                     age:25
                 })
                 .then(function (response) {
-                    console.log(response.status);
+                    console.log(response)
+                    form.innerHTML = `<h1>Thank you for sign In</h1>`
+                    window.location.replace('/loged.html');
                 })
                 .catch(function (error) {
                     console.log(error);
